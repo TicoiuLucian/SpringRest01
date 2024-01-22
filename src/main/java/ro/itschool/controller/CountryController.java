@@ -17,7 +17,8 @@ public class CountryController {
 
   private final CountryService countryService;
 
-  @GetMapping(value = "/all")
+  //  @GetMapping(value = "/all")
+  @RequestMapping(method = RequestMethod.GET, value = "/all")
   public List<Country> getCountries() {
     return countryService.findAll();
   }
@@ -45,7 +46,7 @@ public class CountryController {
   }
 
   @DeleteMapping(value = "/all")
-  public void deleteAll(){
+  public void deleteAll() {
     countryService.deleteAll();
   }
 }
