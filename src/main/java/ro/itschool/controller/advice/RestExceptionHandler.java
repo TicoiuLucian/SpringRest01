@@ -21,8 +21,9 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
   @ExceptionHandler(value = {PropertyValueException.class})
   protected ResponseEntity<Object> handleConflict(
-          PropertyValueException ex, WebRequest request) {
-    var message = ex.getPropertyName() + " from " + ex.getEntityName() + " cannot be null";
+          PropertyValueException ex, WebRequest request) throws ClassNotFoundException {
+    Class<?> aClass = Class.forName(ex.getEntityName());
+    var message = "Filed: " + ex.getPropertyName() + " from " + aClass.getSimpleName() + " cannot be null";
     return handleExceptionInternal(ex, message,
                                    new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
   }
