@@ -1,4 +1,4 @@
-package ro.itschool.controller;
+package ro.itschool.controller.patch;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

@@ -1,5 +1,6 @@
 package ro.itschool.controller.advice;
 
+import org.hibernate.PropertyValueException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,14 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
   protected ResponseEntity<Object> handleConflict(
           FieldNotFoundException ex, WebRequest request) {
     return handleExceptionInternal(ex, ex.getMessage(),
+                                   new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
+  }
+
+  @ExceptionHandler(value = {PropertyValueException.class})
+  protected ResponseEntity<Object> handleConflict(
+          PropertyValueException ex, WebRequest request) {
+    var message = ex.getPropertyName() + " from " + ex.getEntityName() + " cannot be null";
+    return handleExceptionInternal(ex, message,
                                    new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
   }
 }

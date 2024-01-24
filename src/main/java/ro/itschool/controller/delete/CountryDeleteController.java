@@ -1,4 +1,4 @@
-package ro.itschool.controller;
+package ro.itschool.controller.delete;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;

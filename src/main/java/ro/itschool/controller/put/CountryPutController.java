@@ -1,4 +1,4 @@
-package ro.itschool.controller;
+package ro.itschool.controller.put;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PutMapping;

@@ -1,4 +1,4 @@
-package ro.itschool.controller;
+package ro.itschool.controller.get;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
