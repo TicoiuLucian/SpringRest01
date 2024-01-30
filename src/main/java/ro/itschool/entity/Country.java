@@ -20,4 +20,10 @@ public class Country {
 
   @Column(nullable = false)
   private String currency;
+
+  public Country(final String name, final String capital, final String currency) {
+    this.name = name;
+    this.capital = capital;
+    this.currency = currency;
+  }
 }

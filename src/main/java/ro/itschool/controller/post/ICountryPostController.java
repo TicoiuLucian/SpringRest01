@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import ro.itschool.controller.model.CountryDto;
 import ro.itschool.entity.Country;
 
 public interface ICountryPostController {
@@ -30,5 +31,5 @@ public interface ICountryPostController {
           @io.swagger.v3.oas.annotations.parameters.RequestBody(
                   content = @Content(examples = {
                           @ExampleObject(name = "one", value = EXAMPLE)}
-                  )) @RequestBody Country country);
+                  )) @RequestBody CountryDto countryDto);
 }

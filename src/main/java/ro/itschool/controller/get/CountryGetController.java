@@ -6,9 +6,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ro.itschool.controller.model.CountryDto;
 import ro.itschool.entity.Country;
 import ro.itschool.service.CountryService;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -20,7 +22,7 @@ public class CountryGetController {
 
   @GetMapping("/all")
   public ResponseEntity<?> getCountries() {
-    var countries = countryService.findAll();
+    List<CountryDto> countries = countryService.findAll();
     if (countries.isEmpty()) {
       return new ResponseEntity<>(
               "No countries available",
@@ -30,7 +32,7 @@ public class CountryGetController {
   }
 
   @GetMapping("/{id}")
-  public Optional<Country> getById(@PathVariable Integer id) {
+  public Optional<CountryDto> getById(@PathVariable Integer id) {
     return countryService.findById(id);
   }
 

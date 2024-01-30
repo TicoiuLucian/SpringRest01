@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import ro.itschool.controller.model.CountryDto;
 import ro.itschool.entity.Country;
 import ro.itschool.service.CountryService;
 
@@ -14,7 +15,7 @@ public class CountryPostController implements ICountryPostController {
 
   private final CountryService countryService;
 
-  public void createCountry(@RequestBody Country country) {
-    countryService.save(country);
+  public void createCountry(@RequestBody CountryDto countryDto) {
+    countryService.save(countryDto);
   }
 }
